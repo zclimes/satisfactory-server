@@ -40,6 +40,15 @@ spec:
         - containerPort: 7777
           name: "game"
           protocol: UDP
+        resources:
+          limits:
+            cpu: 500m
+            ephemeral-storage: 1Gi
+            memory: 16Gi
+          requests:
+            cpu: 500m
+            ephemeral-storage: 1Gi
+            memory: 12Gi
         volumeMounts:
         - name: satisfactory-data
           mountPath: /config
