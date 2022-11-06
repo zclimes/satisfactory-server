@@ -1,0 +1,106 @@
+ apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    cloud.google.com/neg: '{"ingress":true}'
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"satisfactory"},"name":"satisfactory","namespace":"default"},"spec":{"ports":[{"name":"query","port":15777,"protocol":"UDP","targetPort":"query"},{"name":"beacon","port":15000,"protocol":"UDP","targetPort":"beacon"},{"name":"game","port":7777,"protocol":"UDP","targetPort":"game"}],"selector":{"app":"satisfactory"},"type":"LoadBalancer"}}
+  creationTimestamp: "2022-11-06T03:38:01Z"
+  finalizers:
+  - service.kubernetes.io/load-balancer-cleanup
+  labels:
+    app: satisfactory
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+        f:labels:
+          .: {}
+          f:app: {}
+      f:spec:
+        f:allocateLoadBalancerNodePorts: {}
+        f:externalTrafficPolicy: {}
+        f:internalTrafficPolicy: {}
+        f:ports:
+          .: {}
+          k:{"port":7777,"protocol":"UDP"}:
+            .: {}
+            f:name: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+          k:{"port":15000,"protocol":"UDP"}:
+            .: {}
+            f:name: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+          k:{"port":15777,"protocol":"UDP"}:
+            .: {}
+            f:name: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: kubectl-client-side-apply
+    operation: Update
+    time: "2022-11-06T04:01:16Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:finalizers:
+          .: {}
+          v:"service.kubernetes.io/load-balancer-cleanup": {}
+      f:status:
+        f:loadBalancer:
+          f:ingress: {}
+    manager: kube-controller-manager
+    operation: Update
+    subresource: status
+    time: "2022-11-06T04:01:58Z"
+  name: satisfactory
+  namespace: default
+  resourceVersion: "93372"
+  uid: 854dec8a-77cf-40f7-aa3c-fa16f6d358f6
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 10.126.131.184
+  clusterIPs:
+  - 10.126.131.184
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: query
+    nodePort: 31777
+    port: 15777
+    protocol: UDP
+    targetPort: query
+  - name: beacon
+    nodePort: 31000
+    port: 15000
+    protocol: UDP
+    targetPort: beacon
+  - name: game
+    nodePort: 30777
+    port: 7777
+    protocol: UDP
+    targetPort: game
+  selector:
+    app: satisfactory
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 34.162.211.235
+
