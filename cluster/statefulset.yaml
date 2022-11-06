@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: satisfactory
-        image: wolveix/satisfactory-server:latest
+        image: us-east5-docker.pkg.dev/satisfactory-367800/satisfactory/wolveix-satisfactory-server:latest
         env:
           - name: DEBUG
             value: "false"
@@ -50,4 +50,4 @@ spec:
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
-          storage: 50Gi
+          storage: 10Gi
