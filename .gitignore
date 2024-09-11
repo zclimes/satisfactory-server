@@ -4,9 +4,3 @@ config/*
 .config/*
 !.config/.keep
 
-config-2/*
-!config-2/.keep
-
-.config-2/*
-!.config-2/.keep
-

@@ -28,32 +28,3 @@ services:
         reservations:
           memory: 4G
 
-  satisfactory-server-2:
-    container_name: 'satisfactory-server-2'
-    hostname: 'satisfactory-server-2'
-    image: 'wolveix/satisfactory-server:latest'
-    ports:
-      - '7778:7777/udp'
-      - '7778:7777/tcp'
-    volumes:
-      - './config-2:/config'
-    environment:
-      - MAXPLAYERS=4
-      - PGID=1000
-      - PUID=1000
-      - ROOTLESS=false
-      - STEAMBETA=false
-    restart: unless-stopped
-    healthcheck:
-      test: bash /healthcheck.sh
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 120s
-    deploy:
-      resources:
-        limits:
-          memory: 6G
-        reservations:
-          memory: 4G
-
